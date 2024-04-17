@@ -11,7 +11,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.querySelector('.search-form');
-const loader = document.querySelector('.loader');
+const loader = document.querySelector('.loader'); 
 loader.style.borderColor = 'white';
 loader.style.borderBottomColor = 'transparent';
 const photoGallery = document.querySelector('.images-place');
@@ -27,7 +27,8 @@ async function handleSearch(event) {
   event.preventDefault();
   photoGallery.innerHTML = '';
   loader.style.borderColor = 'black';
-  loader.style.borderBottomColor = 'transparent';
+    loader.style.borderBottomColor = 'transparent';
+     loader.style.display = 'block';
   const searchWord = event.currentTarget.elements.inputSearch.value;
   doFetch(searchWord, loader, photoGallery)
     .then(data => {
@@ -50,8 +51,9 @@ async function handleSearch(event) {
       }
     })
    
-    .finally(() => {
+      .finally(() => {
       loader.style.borderColor = 'white';
-      loader.style.borderBottomColor = 'transparent';
+          loader.style.borderBottomColor = 'transparent';
+          loader.style.display = 'none';
     });
 }
